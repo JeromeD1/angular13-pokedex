@@ -1,0 +1,16 @@
+<main class="flex-row justify-content-start align-items-start">
+
+
+    <app-pokemon-list
+    [pokemonList]="pokemonList"
+    (selectedPokemonEmitter)="showPokemonDetail($event)"
+    ></app-pokemon-list>
+
+    <section class="flex-row justify-content-center">
+        <ng-container *ngIf="selectedPokemon">
+            <app-pokemon-detail
+            [pokemon]="selectedPokemon"
+            ></app-pokemon-detail>
+        </ng-container>
+    </section>
+</main>

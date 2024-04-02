@@ -1,0 +1,6 @@
+<section class="flex-row justify-content-around">
+    <div *ngFor="let pokemon of pokemonList" class="flex-column justify-content-start shadowHovered" (click)="selectPokemon(pokemon)">
+        <h2>{{pokemon.name}}</h2>
+        <img [src]="pokemon.imgUrl" [alt]="pokemon.name">
+    </div>
+</section>

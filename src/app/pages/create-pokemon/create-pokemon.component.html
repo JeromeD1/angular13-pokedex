@@ -1,0 +1,31 @@
+<form [formGroup]="pokeForm" (ngSubmit)="onSubmit()" class="flex-column justify-content-center">
+    <h1>Création d'un nouveau pokemon</h1>
+    <div class="flex-row">
+        <label>Nom :</label>
+        <input formControlName="name" placeholder="Entrez un nom">
+    </div>
+
+    <ng-container *ngIf="submitted && pokeForm.get('name')?.errors">
+        <p *ngIf="pokeForm.get('name')?.errors?.['required']" class="error">Le champ est requis</p>
+    </ng-container>
+
+    <div class="flex-row">
+        <label>Image :</label>
+        <input formControlName="imgUrl" placeholder="Entrez l'url d'une image">
+    </div>
+
+    <ng-container *ngIf="submitted && pokeForm.get('imgUrl')?.errors">
+        <p *ngIf="pokeForm.get('imgUrl')?.errors?.['required']" class="error">Le champ est requis</p>
+    </ng-container>
+
+    <div class="flex-row">
+        <label>Description :</label>
+        <input formControlName="description" placeholder="Décrivez votre pokemon">
+    </div>
+
+    <div class="flex-row justify-content-center">
+        <button type="button" (click)="backToHome()">Retour</button>
+        <button type="submit">Créer</button>
+    </div>
+
+</form>
