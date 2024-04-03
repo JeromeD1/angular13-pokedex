@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Pokemon } from '../../shared/Pokemon.model';
 import { PokedexService } from '../../shared/pokedex.service';
@@ -16,7 +16,12 @@ export class CreatePokemonComponent {
 
   submitted: boolean = false
 
-  constructor(private fb: FormBuilder, private pokeService: PokedexService, private router: Router){}
+  constructor(private fb: FormBuilder, private pokeService: PokedexService, private router: Router){
+    effect(() => {
+      console.log(pokeService.getPokemons());
+      
+    })
+  }
 
   pokeForm = this.fb.group({
     name: ['', Validators.required],
